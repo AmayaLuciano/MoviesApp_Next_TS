@@ -9,7 +9,7 @@ export default async function Home() {
     <main>
       <div className="grid gap-16 grid-cols-fluid">
         {movies.map((movie) => (
-          <p>{movie.title}</p>
+          <p key={movie.id}>{movie.title}</p>
         ))}
       </div>
     </main>
