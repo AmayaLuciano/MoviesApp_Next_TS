@@ -6,6 +6,6 @@ export const getMovies = async () : Promise<Movies>  => {
       );
     
       const res = await data.json();
-        return res
+      return res
 }
 

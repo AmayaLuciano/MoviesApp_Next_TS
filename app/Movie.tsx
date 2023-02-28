@@ -4,24 +4,22 @@ import React, { FC } from 'react';
 import { Result } from './Types/types';
 
 export interface Props {
-  movie: Result;
+  id: number;
+  title: string;
+  releaseDate: string;
+  image: string;
 }
 
-const Movie: FC<Props> = ({ movie }) => {
+const Movie: FC<Props> = ({ id, title, releaseDate, image }) => {
   const imagePath = 'https://image.tmdb.org/t/p/original';
   return (
     <div className="flex flex-col justify-end text-center">
-      <Link href={`/${movie.id}`}>
-        <div className="mb-3 " key={movie.id}>
-          <h1>{movie.title}</h1>
-          <h3>{movie.release_date}</h3>
+      <Link href={`/${id}`}>
+        <div className="mb-3">
+          <h1>{title}</h1>
+          <h3>{releaseDate}</h3>
         </div>
-        <Image
-          src={imagePath + movie.poster_path}
-          width={600}
-          height={600}
-          alt="as"
-        />
+        <Image src={imagePath + image} width={600} height={600} alt="as" />
       </Link>
     </div>
   );
