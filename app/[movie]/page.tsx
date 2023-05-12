@@ -11,25 +11,25 @@ const MovieDetail = async ({ params }: Props) => {
   const imagePath = 'https://image.tmdb.org/t/p/original';
 
   const data = await fetch(
-    `https://api.themoviedb.org/3/movie/${movie}?api_key=${process.env.API_KEY}`
+    `https://api.themoviedb.org/3/movie/${movie}?api_key=0323e40e53318e3d94d399ea4461b83e`
   );
 
   const res: MovieDetail = await data.json();
 
   return (
     <div>
-      <h1>{res.title.toUpperCase()}</h1>
-      <h2>{res.release_date}</h2>
-      <h2>{res.runtime} minutes</h2>
+      <h1>{res?.title?.toUpperCase()}</h1>
+      <h2>{res?.release_date}</h2>
+      <h2>{res?.runtime} minutes</h2>
       <Image
         className="my-12 w-full"
-        src={imagePath + res.backdrop_path}
+        src={imagePath + res?.backdrop_path}
         width={1000}
         height={1000}
-        alt={res.title}
+        alt={res?.title}
         priority
       />
-      <p>{res.overview}</p>
+      <p>{res?.overview}</p>
     </div>
   );
 };

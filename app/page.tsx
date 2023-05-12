@@ -5,13 +5,13 @@ import { Movies } from './Types/types';
 
 export default async function Home() {
   const data: Movies = await getMovies();
-  const movies = data.results;
+  const movies = data?.results;
 
   const imagePath = 'https://image.tmdb.org/t/p/original';
   return (
-    <main>
+    <main id="#home">
       <div className="grid gap-16 grid-cols-fluid">
-        {movies.map((movie) => (
+        {movies?.map((movie) => (
           <div key={movie.id} className="flex flex-col justify-end text-center">
             <Link href={`/${movie.id}`}>
               <div className="mb-3">

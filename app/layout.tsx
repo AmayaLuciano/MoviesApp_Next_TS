@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import './globals.css';
 
 export const metadata = {
@@ -12,7 +13,14 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className={' mx-32 my-12'}>{children}</body>
+      <body className={' mx-32 my-12'}>
+        <header className="h-20 sticky top-0 shadow-lg">
+          <div className="text-2xl">
+            <Link href={'#home'}>Movies App 🎞</Link>
+          </div>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
